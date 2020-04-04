@@ -55,3 +55,66 @@ The section table shows an overview of defined sections:
 - `.rodata`: ReadOnly-data section for constants
 - `.interp`: filename and dynamic linker
 This section are used during linking time, segments are used during execution
+
+
+
+## Further References: 
+See [Core Instructions](https://www.felixcloutier.com/x86/) to lookup instruction.
+X86-Architecture is a bit explained in [Wiki-Book](https://en.wikibooks.org/wiki/X86_Assembly/X86_Architecture)
+
+
+## X86-Register Overview
+
+| Purpose        | 64b | 32b | 16b |
+| -------------- | --- | --- | --- |
+| Accumulator    | RAX | EAX | AX  |
+| Counter        | RCX | ECX | CX  |
+| Data           | RDX | EDX | DX  |
+| Base           | RBX | EBX | BX  |
+| Stack Pnt      | RSP | ESP | SP  |
+| Stack Base Pnt | RBP | EBP | BP  |
+| Source         | RSI | ESI | SI  |
+| Destination    | RDI | EDI | DI  |
+
+Registers
+- **AX**: Accumulator: For arithmetic operations
+- **CX**: Counter: Shift/Rotate and loops
+- **DX**: Data: arithmetic and IO-operations
+- **BX**: Base: Pointer to Data-Base (Data-Segment DS, when in segment mode)
+- **SP**: StackPointer: Pointer to Top of stack
+- **BP**: Stack-Base: Pointer to Base of stack
+- **SI**: Source-Index: Points source in stream operations
+- **DI**: Destination-Index: Points to destination in stram operations
+
+Segment Registers:
+- **SS**: Stack Segment
+- **CS**: Code Segment
+- **DS**: Data Segment
+- **ES**: Extra Segment
+- **FS**: F-Segment (next Extra)
+- **GS**: G-Segment (next Extra)
+
+Further Register:
+- **IP** Instruction Pointer: Pointer to next instruction
+
+
+EFlags-Register:
+- CF: Carry Flag
+- PF: Parity Flag
+- PF : Parity Flag
+- AF : Adjust Flag
+- ZF : Zero Flag
+- SF : Sign Flag
+- TF : Trap Flag
+- IF : Interruption Flag
+- DF : Direction Flag.
+- OF : Overflow Flag. 
+- IOPL : I/O Privilege Level field (2 bits).
+- NT : Nested Task flag
+- RF : Resume Flag
+- VM : Virtual-8086 Mode
+- AC : Alignment Check
+- VIF : Virtual Interrupt Flag
+- VIP : Virtual Interrupt Pending flag
+- ID : Identification Flag
+
