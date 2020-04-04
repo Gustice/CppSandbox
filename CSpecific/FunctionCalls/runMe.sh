@@ -41,9 +41,11 @@ indent() { sed 's/^/    /'; }
 function ProcessFile {
     g++ -c $1.c -o build/$1.o $compArgs
     nm -C build/$1.o  > build/$1.o.nm
-  
+    objdump -d build/$1.o  > build/$1.o.odmp
+
     echo "Relevant Symbols in ${1}.o" >>$2
     nm -C build/$1.o | grep "Eval_" | indent >>$2
+    objdump -d build/$1.o | grep "Eval_" | indent >>$2
 }
 
 ProcessFile module $outFile
