@@ -1,6 +1,4 @@
 #include "module.h"
-
-#include <iostream>
 #include "stdio.h"
 
 void Eval_GlobalFun(int i)
@@ -15,8 +13,8 @@ static void Eval_LocalStaticFun(int i)
 
 int main(int argc, char const *argv[])
 {
-    std::cout << "Call of Main: " << __PRETTY_FUNCTION__ << std::endl;
-    
+    printf("Call of Main: %s \r\n", __PRETTY_FUNCTION__);
+        
     Eval_GlobalFun(1);
     Eval_LocalStaticFun(2);
 
