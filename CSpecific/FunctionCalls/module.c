@@ -8,7 +8,7 @@ void Eval_Module_ModuleGlobal(int i)
 
 static void Eval_Module_ModuleLocal(int i)
 {
-    printf("Potential global call: '%s' with param `%d`\r\n", __PRETTY_FUNCTION__, i);
+    printf("Local call: '%s' with param `%d`\r\n", __PRETTY_FUNCTION__, i);
 }
 
 void Eval_Module_ExternalGlobal(int i)
