@@ -1,8 +1,10 @@
 #!/bin/bash
 
-##########
-## HELP ##
-##########
+# 
+# Compilation of sandbox-programm and generating of dumps for further analisis.
+# 
+
+# Help prompt #
 if [[ ( "$1" == "-h" ) || ( "$1" == "--help" ) ]]; then
     echo "Usage: `BashName $0` [-h]"
     echo "  Build the project with different configurations"
