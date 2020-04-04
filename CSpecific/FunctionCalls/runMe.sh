@@ -8,7 +8,8 @@ if [[ ( "$1" == "-h" ) || ( "$1" == "--help" ) ]]; then
     echo "  Build the project with different configurations"
     echo
     echo "  -h, --help           Show this help text"
-    echo "  " #@todo Show instructions
+    echo " [0]: Mainfile only"
+    echo "  1 : Embed Module"
     exit 0
 fi
 
@@ -25,9 +26,20 @@ echo "Execution time: "$exTime >>$outFile
 echo "Script started from $(pwd)" >>$outFile
 echo "" >> $outFile
 
+compArgs=""
+if [ $# -gt 0 ]; then
+case "$1" in
+   0) ;; # No action needed
+   1) compArgs="-DSTEP=1 " ;;
+   *) echo "ERROR: Parameter ${1} is not valid"; exit 1 ;;
+esac
+echo "Command Call with ${compArgs}"
+fi
+
+
 indent() { sed 's/^/    /'; }
 function ProcessFile {
-    g++ -c $1.c -o build/$1.o
+    g++ -c $1.c -o build/$1.o $compArgs
     nm -C build/$1.o  > build/$1.o.nm
   
     echo "Relevant Symbols in ${1}.o" >>$2

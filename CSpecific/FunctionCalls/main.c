@@ -1,4 +1,7 @@
+#if STEP == 1
 #include "module.h"
+#endif
+
 #include "stdio.h"
 
 void Eval_GlobalFun(int i)
@@ -18,7 +21,10 @@ int main(int argc, char const *argv[])
     Eval_GlobalFun(1);
     Eval_LocalStaticFun(2);
 
+#if STEP == 1
     Eval_Module_ExternalGlobal(10);
+#endif
+
     /* code */
     return 0;
 }
