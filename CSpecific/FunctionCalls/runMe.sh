@@ -25,12 +25,13 @@ echo "Execution time: "$exTime >>$outFile
 echo "Script started from $(pwd)" >>$outFile
 echo "" >> $outFile
 
+indent() { sed 's/^/    /'; }
 function ProcessFile {
-    g++ -c $1.cpp -o build/$1.o
+    g++ -c $1.c -o build/$1.o
     nm -C build/$1.o  > build/$1.o.nm
   
     echo "Relevant Symbols in ${1}.o" >>$2
-    nm -C build/$1.o | grep "Eval_"  >>$2
+    nm -C build/$1.o | grep "Eval_" | indent >>$2
 }
 
 ProcessFile module $outFile
@@ -39,16 +40,17 @@ ProcessFile main $outFile
 g++ build/main.o build/module.o -o build/main.exe
 nm -C build/main.exe > build/main.exe.nm
 echo "Relevant Symbols in main.exe" >>$outFile
-nm -C build/main.exe | grep "Eval_"  >>$outFile
+nm -C build/main.exe | grep "Eval_" | indent >>$outFile
 
 
 echo "Show build/output.txt"
+
 echo -e "\033[1;30m"
 cat $outFile
-echo "Test"
+echo -e "\033[0m"
+
+echo "invoking main file"
 
 echo -e "\033[2;33m" # Light Yellow
-echo "invoking main file"
-./build/main.exe
-
+./build/main.exe | indent 
 echo -e "\033[0m"
