@@ -56,7 +56,7 @@ ProcessFile FunCall
 ProcessFile main
 
 # Like ProcessFile but applied for linked main
-g++ build/main.o build/module.o -o build/main.exe
+g++ build/main.o build/FunCall.o -o build/main.exe
 nm -C build/main.exe > build/main.exe.nm
 objdump -C -d build/main.exe  > build/main.exe.o.ddmp
 
