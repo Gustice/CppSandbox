@@ -22,11 +22,11 @@ int main(int argc, char const *argv[])
     int i = 0;
     Module module;
     
-    module.Eval_HDefinedSetter(i++);
+    module.Eval_HDefinedSetter(++i);
     i = module.Eval_HDefinedGetter();
 
-    module.Eval_CppImplementedSetter(i++);
-    module.Eval_CppImplementedGetter();
+    module.Eval_CppImplementedSetter(++i);
+    i = module.Eval_CppImplementedGetter();
 
     printf("Final result of variable: %d", i);
 
