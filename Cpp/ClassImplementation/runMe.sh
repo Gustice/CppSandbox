@@ -10,8 +10,8 @@ if [[ ( "$1" == "-h" ) || ( "$1" == "--help" ) ]]; then
     echo "  Build the project with different configurations"
     echo
     echo "  -h, --help           Show this help text"
-    # echo " [0]: Mainfile only"
-    # echo "  1 : Embed Module"
+    echo " [0]: No optimization"
+    echo "  1 : Optimization Level 1"
     exit 0
 fi
 
@@ -33,14 +33,14 @@ echo "" >> $outFile
 
 # Set compiler arguments according to called mode
 compArgs=""
-# if [ $# -gt 0 ]; then
-# case "$1" in
-#    0) ;; # No action needed
-#    1) compArgs="-DSTEP=1 " ;;
-#    *) echo "ERROR: Parameter ${1} is not valid"; exit 1 ;;
-# esac
-# echo "Command Call with ${compArgs}"
-# fi
+if [ $# -gt 0 ]; then
+case "$1" in
+   0) ;; # No action needed
+   1) compArgs="-O1 " ;;
+   *) echo "ERROR: Parameter ${1} is not valid"; exit 1 ;;
+esac
+echo "Command Call with ${compArgs}"
+fi
 
 # Function for indentation
 indent() { sed 's/^/    /'; }
