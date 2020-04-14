@@ -29,7 +29,7 @@ int main(int argc, char const *argv[])
     i = module.Eval_CppImplementedGetter();
 
     /* Usage of Property */
-    module.Property = i;
+    module.Property = ++i;
     i = module.Property;
 
     printf("Final result of variable: %d", i);
