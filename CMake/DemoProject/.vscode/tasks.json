@@ -1,0 +1,57 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create OutputDir",
+            "type": "shell",
+            "options": { 
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "mkdir -p _build",
+            "problemMatcher": [], // Otherwise its annoys you with warnings
+        },
+        {
+            "label": "CMake: Create Configuration",
+            "type": "shell",
+            "options": { 
+                "cwd": "${workspaceFolder}/_build"
+            },
+            "dependsOn": "Create OutputDir",
+            "command": "cmake ..",
+            "problemMatcher": "$gcc", 
+        },
+        {
+            "label": "CMake: Build Project",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/_build"
+            },
+            "command": "cmake --build .",
+            "dependsOn": "CMake: Create Configuration",
+            "group": {"kind": "build", "isDefault": true},
+            "problemMatcher": ["$gcc"], 
+        },
+        {
+            "label": "CMake: Run Test Project",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/_build/app"
+            },
+            "command": "./DemoApp",
+            "dependsOn": "CMake: Build Project",
+            "group": {"kind": "test", "isDefault": true},
+            "problemMatcher": [], 
+        },
+        {
+            "label": "Clean Build",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "command": "rm _build -r",
+            "problemMatcher": [], 
+        },
+    ]
+}
