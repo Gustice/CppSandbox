@@ -4,11 +4,14 @@
     "clang.cxxflags": [
         "-Wno-pragma-once-outside-header",
         "-std=c++11",
-        "-I/${WorkspaceFolder}lib",
+        "-I/${workspaceRoot}lib",
     ],
     "clang.cflags": [
         "-Wno-pragma-once-outside-header",
         "-std=c99",
-        "-I/${WorkspaceFolder}lib",
+        "-I/${workspaceRoot}lib",
     ],
+    "files.associations": {
+        "*.in": "cpp"
+    },
 }

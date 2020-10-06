@@ -1,7 +1,7 @@
 /**
- * @file core.h
+ * @file dynLib.h
  * @author Gustice
- * @brief Library Header
+ * @brief Dynamic Library
  * @version 0.1
  * @date 2020-10-04
  * 

@@ -1,7 +1,7 @@
 /**
- * @file core.cpp
+ * @file dynLib.cpp
  * @author Gustice
- * @brief CoreProcessing of Library
+ * @brief Dynamic Library Implementation
  * @version 0.1
  * @date 2020-10-04
  * 
@@ -9,17 +9,17 @@
  */
 
 #include "util.h"
-#include "core.h"
+#include "dynLib.h"
 
 #include <stdio.h>
 
 OpStatus InitCore(){
-    printf("    ## Core initialized \n");
+    printf("    ## DynLib: Static initialized \n");
     return OpStatus::Initialized;
 }
 
 OpStatus StartCore(){
-    printf("    ## Core stated \n");
+    printf("    ## DynLib: Core stated \n");
     int num = Util_GenNumber();
     if (num >= 0) {
         return OpStatus::Initialized;
