@@ -71,6 +71,9 @@ void PrittyPrintingFloats(void)
     
 }
 
+// @todo PrittyPrint References (like %p)
+// @todo PrittyPrint with varargs
+
 /* Main to call all functions */
 int main(int argc, char const *argv[])
 {
