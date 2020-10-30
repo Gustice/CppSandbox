@@ -30,9 +30,20 @@
             },
             "command": "cmake --build .",
             "dependsOn": "CMake: Create Configuration",
+            "problemMatcher": ["$gcc"], 
+        },
+        {
+            "label": "CMake: Run Tests",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceFolder}/_build"
+            },
+            "command": "make test",
+            "dependsOn": "CMake: Build Project",
             "group": {"kind": "build", "isDefault": true},
             "problemMatcher": ["$gcc"], 
         },
+
         {
             "label": "CMake: Run Test Project",
             "type": "shell",

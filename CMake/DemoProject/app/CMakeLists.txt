@@ -10,9 +10,13 @@ set(appSrcs main.cpp process.cpp)
 
 # Adds new Executable => Yields a Exe with giben Name
 add_executable(DemoApp ${appSrcs})
-# Sets Compiler Include Path for target
+# Sets Compiler Include Path for target # Note this is better approach then the genric commands like "include_directories"
 target_include_directories(DemoApp PUBLIC "${PROJECT_BINARY_DIR}/app" ${EXTRA_LIBS})
 
 target_link_libraries(DemoApp dynamicLibrary ${EXTRA_LIBS})
 
 install(TARGETS DemoApp DESTINATION bin)
+
+
+
+
