@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-#include "Process.h"
+#include "MyProcess.h"
 
 int main(int argc, char const *argv[])
 {
