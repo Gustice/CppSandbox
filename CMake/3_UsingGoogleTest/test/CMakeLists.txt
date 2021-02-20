@@ -1,2 +1,4 @@
-add_executable(Tests ProcessTest.cpp)
-target_link_libraries(Tests PUBLIC MainFrameComponent)
+add_executable(MyTests testMain.cpp ProcessTest.cpp)
+target_link_libraries(MyTests PUBLIC MainFrameComponent gtest)
+
+add_test ( NAME MyTests COMMAND MyTests ) 

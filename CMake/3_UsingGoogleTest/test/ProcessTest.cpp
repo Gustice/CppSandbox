@@ -1,14 +1,44 @@
-#include <iostream>
+#include "gtest/gtest.h"
 #include "MyProcess.h"
 
-int main(int argc, char const *argv[])
-{
-    uint32_t inVar = 2;
-    uint32_t outVar = 0;
-    bool res = Pc_Evaluate(inVar, &outVar);
-    if (res == false && outVar == 4)
-        std::cout << "## Test Successful" << std::endl;
-    else
-        std::cout << "## Test Failed !!!!!!!!!!!" << std::endl;
-    return 0;
+
+TEST(TestToolChain, SimpleTest) {
+    //arrange
+    //act
+    //assert
+
+    EXPECT_EQ (0 , 0);
+}
+
+TEST(TestCase1, SimpleTest) {
+    //arrange
+    //act
+    //assert
+    uint32_t outVal;
+    bool res = Pc_Evaluate(2, &outVal);
+
+    EXPECT_EQ (false , res);
+    EXPECT_EQ (4 , outVal);
+}
+
+TEST(TestCase2, SimpleTest) {
+    //arrange
+    //act
+    //assert
+    uint32_t outVal;
+    bool res = Pc_Evaluate(4, &outVal);
+
+    EXPECT_EQ (false , res);
+    EXPECT_EQ (8 , outVal);
+}
+
+TEST(TestCase3, SimpleTest) {
+    //arrange
+    //act
+    //assert
+    uint32_t outVal;
+    bool res = Pc_Evaluate(64, &outVal);
+
+    EXPECT_EQ (true , res);
+    EXPECT_EQ (100 , outVal);
 }
