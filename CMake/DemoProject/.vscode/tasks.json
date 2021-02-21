@@ -4,19 +4,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Create OutputDir",
-            "type": "shell",
-            "options": { 
-                "cwd": "${workspaceFolder}"
-            },
-            "command": "mkdir -p _build",
-            "problemMatcher": [], // Otherwise its annoys you with warnings
-        },
-        {
             "label": "CMake: Create Configuration",
             "type": "shell",
             "options": { 
-                "cwd": "${workspaceFolder}/_build"
+                "cwd": "${workspaceFolder}/build"
             },
             "dependsOn": "Create OutputDir",
             "command": "cmake ..",
@@ -26,7 +17,7 @@
             "label": "CMake: Build Project",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}/_build"
+                "cwd": "${workspaceFolder}/build"
             },
             "command": "cmake --build .",
             "dependsOn": "CMake: Create Configuration",
@@ -36,7 +27,7 @@
             "label": "CMake: Run Tests",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}/_build"
+                "cwd": "${workspaceFolder}/build"
             },
             "command": "make test",
             "dependsOn": "CMake: Build Project",
@@ -48,7 +39,7 @@
             "label": "CMake: Run Test Project",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}/_build/app"
+                "cwd": "${workspaceFolder}/build/app"
             },
             "command": "./DemoApp",
             "dependsOn": "CMake: Build Project",

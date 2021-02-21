@@ -14,4 +14,4 @@ target_include_directories(LibUsage PUBLIC staticLibrary)
 target_link_libraries(LibUsage staticLibrary)
 
 # Sets Compiler Include Path
-include_directories(${CMAKE_SOURCE_DIR}/statLib )
+include_directories(${CMAKE_SOURCE_DIR}/statLib)
