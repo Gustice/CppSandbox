@@ -1,0 +1,11 @@
+// Values in @..@ will be replaced
+#define Project_Version_MAJOR @ConfigHeader_VERSION_MAJOR@
+#define Project_Version_MINOR @ConfigHeader_VERSION_MINOR@
+
+// String-Values can be placed in Quotes. But @..@ are still necessary
+#define ProjectDefined_String "@MyString@"
+#define ProjectDefined_Number @MyNumber@
+
+// Defines can also be injected as Option from CMakeLists
+#cmakedefine USE_FLAG
+#cmakedefine NOT_USE_FLAG

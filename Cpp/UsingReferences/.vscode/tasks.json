@@ -1,0 +1,30 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "buildRunner",
+            "command": "/usr/bin/g++",
+            "args": ["-g","main.cpp", "LegacyModule.cpp", "ReferencedModule.cpp", 
+                     "-o","UsingReferences.exe"
+            ],
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },      
+        },
+        {
+            "type": "shell",
+            "label": "run file",
+            "command": "./UsingReferences.exe",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": "buildRunner"
+        }
+    ]
+}

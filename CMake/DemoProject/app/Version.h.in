@@ -1,0 +1,14 @@
+/**
+ * @file Version.h
+ * @author Gustice
+ * @brief Version-File
+ * @details To be parametrized by CMake
+ * @date 2020-10-05
+ * 
+ * @copyright Copyright (c) 2020
+ */
+#pragma once
+
+// the configured options and settings for Tutorial
+#define DEMO_APP_VERSION_MAJOR @CMakeEval_VERSION_MAJOR@
+#define DEMO_APP_VERSION_MINOR @CMakeEval_VERSION_MINOR@

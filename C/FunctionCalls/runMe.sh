@@ -48,7 +48,7 @@ indent() { sed 's/^/    /'; }
 # Function for single file analisis
 function ProcessFile {
     g++ -c $1.c -o build/$1.o $compArgs         # Compile only
-    nm -C build/$1.o  > build/$1.o.nm           # print 
+    nm -C build/$1.o  > build/$1.o.nm           # print FunctionName 
     objdump -C -d build/$1.o  > build/$1.o.ddmp # Print assembly
     objdump -C -x build/$1.o  > build/$1.o.xdmp # Print all header
     readelf -a build/$1.o  > build/$1.o.aelf    # Print elf file
