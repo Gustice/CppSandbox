@@ -1,12 +1,10 @@
 /**
  * @file main.c
  * @author Gustice
- * 
  * @brief C++-Programm to demonstrate C#-properties-syntax
  * @date 2020-04-04
  * 
  * @copyright Copyright (c) 2020
- * 
  */
 
 #include <stdio.h>
