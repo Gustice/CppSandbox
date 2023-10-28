@@ -1,26 +1,31 @@
-#if !defined(MODULE_H)
+/**
+ * @file Module.h
+ * @author Gustice
+ * @brief Module definition that utilizes C#-like-property
+ * @date 2023-10-28
+ * 
+ * @copyright Copyright (c) 2023
+ */
+#ifndef MODULE_H
 #define MODULE_H
 
-#include "Property.h" // Definition of Property
+#include "Property.h"
 
 class Module
 {
 private:
-    int _property;
-    int _iField;
-    int _iField2;
+    int _property {};
+    int _field {};
         
 public:
-    /* Initialization of Property */
-    Module() : Property(_property) {};
-    void Eval_HDefinedSetter(int value){ _iField = value; }
-    int Eval_HDefinedGetter(void){ return _iField; }
-
-    /* Implementation of Property */
+    // Property instance
     PropertyRW<int> Property;
-
-    void Eval_CppImplementedSetter(int value);
-    int Eval_CppImplementedGetter(void);
+    
+    Module() : Property(_property) {}
+    
+    // typical getter/setter
+    void setField(int value){ _field = value; }
+    int getField(void) const { return _field; } 
 };
 
 #endif // MODULE_H

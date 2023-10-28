@@ -2,37 +2,36 @@
  * @file main.c
  * @author Gustice
  * 
- * @brief C++-Programm with different calls to analyze effect of modifiers on 
- *      compiled output.
- *      Compilation and source-dumps are generated with 'runMe.sh'.
- * @version 0.1
+ * @brief C++-Programm to demonstrate C#-properties-syntax
  * @date 2020-04-04
  * 
  * @copyright Copyright (c) 2020
  * 
  */
 
-#include "stdio.h"
+#include <stdio.h>
 #include "Module.h"
 
 int main(int argc, char const *argv[])
 {
-    printf("Call of Main: %s \r\n", __PRETTY_FUNCTION__);
+    printf("Call of Main: %s \n", __PRETTY_FUNCTION__);
     
-    int i = 0;
     Module module;
+    printf("Initial value of variables: property=%d / field=%d\n", 
+    (int)module.Property, module.getField());
+
+    // Usage of typical getter/setter
+    module.setField(module.getField() +1);
     
-    module.Eval_HDefinedSetter(++i);
-    i = module.Eval_HDefinedGetter();
+    // Usage of properties
+    module.Property = module.Property +1 ;
 
-    module.Eval_CppImplementedSetter(++i);
-    i = module.Eval_CppImplementedGetter();
-
-    /* Usage of Property */
-    module.Property = ++i;
-    i = module.Property;
-
-    printf("Final result of variable: %d", i);
+    printf("Final result of variables: property=%d / field=%d", 
+    (int)module.Property, module.getField());
 
     return 0;
 }
+
+// Conclusion so far:
+//   Syntax is more pleasant but the implicit conversion does not work always for you
+//   However implicit conversion aren't desired anyways
